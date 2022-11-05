@@ -1,30 +1,55 @@
+import {service} from '@loopback/core';
 import {
   Count,
   CountSchema,
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, HttpErrors, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
-import {Usuario} from '../models';
+import {Credenciales, Usuario} from '../models';
 import {UsuarioRepository} from '../repositories';
+import {AutenticacionService} from '../services';
+const fetch = require('node-fetch');
 
 export class UsuarioController {
   constructor(
     @repository(UsuarioRepository)
     public usuarioRepository : UsuarioRepository,
+    @service(AutenticacionService)
+    public servicioAutenticacion : AutenticacionService,
   ) {}
+
+  @post('/identificarUsuario',{
+    responses:{
+      '200':{
+        description:'Identificacion de usuario'
+      }
+    }
+  })
+  async identificarUsuario(
+    @requestBody() credenciales : Credenciales
+  ){
+    const persona = await this.servicioAutenticacion.identificarUsuario(credenciales.Usuario,credenciales.Contrasena);
+    if (persona) {
+      const token = this.servicioAutenticacion.generarTokenJWT(persona);
+      return{
+        datos:{
+          nombre : persona.nombre,
+          correo : persona.correo,
+          id : persona.id
+        },
+        tk : token
+      }
+    }else{
+      throw new HttpErrors[401]("Datos invalidos");
+    }
+  }
 
   @post('/usuarios')
   @response(200, {
@@ -44,7 +69,21 @@ export class UsuarioController {
     })
     usuario: Omit<Usuario, 'id'>,
   ): Promise<Usuario> {
-    return this.usuarioRepository.create(usuario);
+    const Contrasena = this.servicioAutenticacion.generarClave();
+    const claveCifrada = this.servicioAutenticacion.cifrarClave(Contrasena);
+    usuario.contrasena = claveCifrada;
+    const persona = await this.usuarioRepository.create(usuario);
+    // Notificar al usuario
+    const destino = usuario.correo;
+    const asunto = 'Registro en la plataforma';
+    const contenido = `Hola ${usuario.nombre} su usuario es ${usuario.correo}
+    y su contraseña es ${Contrasena}`;
+    fetch(`http://127.0.0.1:5000/email?correo_destino=${destino}
+    &asunto=${asunto}&contenido=${contenido}`)
+    .then((data:string)=>{
+      console.log(data);
+    })
+    return persona;
   }
 
   @get('/usuarios/count')
