@@ -4,7 +4,8 @@ import {HttpErrors} from '@loopback/rest';
 import {UserProfile} from '@loopback/security';
 import {Request} from 'express';
 import parseBearerToken from 'parse-bearer-token';
-import {AutenticacionService} from '../services';
+import { AutenticacionService } from '../services';
+
 
 export class EstrategiaAdminitrador implements AuthenticationStrategy{
   name = 'Administrador';
