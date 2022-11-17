@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Solicitudes Mascota Feliz</title>
+  <style type="text/css">
+    h1
+    {
+      color: grey;
+    }
+  </style>
+  <link rel="stylesheet" href="../styles/solicitudes.css">
+</head>
+
+<body>
+  <center><h1>FORMATO DE SOLICITUD</h1></center>
+  
+  <section id="secciones">
+    <div class="left">
+    <fieldset class="container">
+      <legend>Datos del solicitante</legend>
+      <div class="col-md-8">
+        <label for="txtNombre" class="form-label">Nombre completo del solicitante:</label>
+        <input type="text" class="form-control" id="txtNombre">
+      </div>
+      <div class="col-md-4">
+        <label for="txtIdentificacion" class="form-label">Número de identificación del solicitante:</label>
+        <input type="text" class="form-control" id="txtIdentificacion">
+      </div>
+      <div class="col-md-8">
+        <label for="txtDireccion" class="form-label">Dirección del solicitante:</label>
+        <input type="text" class="form-control" id="txtDireccion">
+      </div>
+      <div class="col-md-4">
+        <label for="validacionNumerodeContacto" class="form-label">Número de contacto del solicitante:</label>
+        <input type="txtNumerodeContacto" class="form-control" id="txtNumerodeContacto">
+      </div>
+      <div class="col-md-8">
+        <label for="txtCorreo" class="form-label">Correo electrónico del solicitante:</label>
+        <span class="input-group-text" id="inputGroupPrepend">@</span>
+        <input type="text" class="form-control" id="txtCorreo" aria-describedby="inputGroupPrepend">
+      </div>
+      <div class="col-md-4">
+        <label for="txtOcupacion" class="form-label">Ocupación del solicitante:</label>
+        <input type="text" class="form-control" id="txtOcupacion">
+      </div>
+      <h5>Estimado salarial:</h5>
+      <div class="col-md-4">
+      <div class="form-floating">
+        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+          <option selected>Rango salarial</option>
+          <option value="1">Menos del SMLV</option>
+          <option value="2">1 SMLV</option>
+          <option value="3">+ de 1 SMLV</option>
+        </select>
+        <label for="floatingSelect"></label>
+      </div>
+      </div>
+      <div class="col-md-8">
+        <label for="txtMascota" class="form-label">Mascota(s) a cargo:</label>
+        <input type="text" class="form-control" id="txtMascota">
+      </div>
+    </fieldset>
+    </div>
+    
+    <div class="right">
+      <fieldset>
+        <legend>Estudio de la solicitud</legend>
+        <form class="row g-3 needs-validation" novalidate>
+          <h5>Plan solicitado:</h5>
+          <div class="col-md-4">
+          <div class="form-floating">
+            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+              <option selected>Seleccione un plan</option>
+              <option value="1">Básico</option>
+              <option value="2">Óptimo</option>
+              <option value="3">Protección</option>
+              <option value="4">Premium</option>
+            </select>
+            <label for="floatingSelect"></label>
+          </div>
+          </div>
+          <h5>¿Se cuenta con la información y documentación necesaria por parte del solicitante?</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1" aria-required="">
+              Sí.
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2" aria-required="">
+              No.
+            </label>
+          </div>
+          <div class="invalid-feedback">
+            Debe seleccionar una opción.
+          </div>
+          <h5>Estado de la revisión de la solicitud:</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="FRD" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1" aria-required="">
+              En proceso de verificación.
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="FRD" id="flexRadioDefault2" checked>
+            <label class="form-check-label" for="flexRadioDefault2" aria-required="">
+              Verificada.
+            </label>
+          </div>
+          <div class="invalid-feedback">
+            Debe seleccionar una opción.
+        </form>
+      </fieldset>
+    </div>
+  </section>
+
+    <div class="down">
+      <fieldset>
+        <legend>Observaciones:</legend>
+        <center>
+        <div class="col-md-8">
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+          <label for="floatingTextarea2">Comentarios:</label>
+        </div>
+        </div>
+        </center>
+        <br>
+        <form class="row g-3 needs-validation" novalidate>
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="button1">Aceptar</button>
+            <button class="btn btn-primary" type="button2">Rechazar</button2>
+          </div>
+          <div class="invalid-feedback">
+            Debe seleccionar una opción.
+          </div>
+        </form>
+        </br>
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">Enviar Respuesta</button>
+        </div>
+      </form>
+     </fieldset>
+   </div>
+
+</body>
+  
+</html>
