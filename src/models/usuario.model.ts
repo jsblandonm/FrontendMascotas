@@ -42,7 +42,7 @@ export class Usuario extends Entity {
 
   @property({
     type: 'string',
-    required: false,
+    required: true,
   })
   contrasena: string;
 
