@@ -42,7 +42,8 @@ export class UsuarioController {
         datos:{
           nombre : persona.nombre,
           correo : persona.correo,
-          id : persona.id
+          id : persona.id,
+          rol : persona.rol
         },
         tk : token
       }

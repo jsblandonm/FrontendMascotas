@@ -1,0 +1,59 @@
+<body>
+  <header>
+    <div class="content">
+      <a routerLink="/home">
+        <img src="/Frontend_Veterinaria-angular/src/assets/icons/pets-svgrepo-com.svg" alt="logo" />
+      </a>
+      <nav>
+        <ul>
+          <li *ngIf="LogginOn">
+          <a routerLink="/adminstration/user">usuarios</a>
+        </li>
+        <li *ngIf="LogginOn">
+          <a routerLink="/adminstration/products-services">p y s</a>
+        </li>
+        <li *ngIf="LogginOn">
+          <a routerLink="/security/change-password">cambiar clave</a>
+        </li>
+        <li *ngIf="!LogginOn">
+          <a routerLink="/security/Log-in">iniciar sesion</a>
+        </li>
+        <li *ngIf="LogginOn">
+          <a routerLink="security/Log-out">Cerrar sesion</a>
+        </li>
+        </ul>
+        
+        <!-- <a *ngIf="LogginOn" routerLink="home">Nosotros</a>
+        <a *ngIf="LogginOn" routerLink="home">Servcios</a>
+        <a *ngIf="LogginOn" routerLink="home">Galeria</a>
+        <a *ngIf="LogginOn" routerLink="home">Contacto</a>
+        <a *ngIf="!LogginOn" routerLink="security/Log-in">Login</a>
+        <a *ngIf="LogginOn" routerLink="security/Log-out">Logout</a> -->
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </header>
+</body>
+
+<!-- 
+<nav>
+  <div class="nav-wrapper">
+    <a routerLink="/inicio" class="brand-logo">logo</a>
+    <a routerLink="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li *ngIf="LogginOn"><a routerLink="adminstration/user">usuarios</a></li>
+      <li *ngIf="LogginOn"><a routerLink="adminstration/products-services">p y s</a></li>
+      <li *ngIf="LogginOn"><a routerLink="security/change-password">cambiar clave</a></li>
+      <li *ngIf="!LogginOn"><a routerLink="security/Log-in">iniciar sesion</a></li>
+      <li *ngIf="LogginOn"><a routerLink="security/Log-out">Cerrar sesion</a></li>
+    </ul>
+  </div>
+</nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <li *ngIf="LogginOn"><a routerLink="administration/user">usuarios</a></li>
+  <li *ngIf="LogginOn"><a routerLink="administration/products-services">p y s</a></li>
+  <li *ngIf="LogginOn"><a routerLink="security/change-password">cambiar clave</a></li>
+  <li *ngIf="!LogginOn"><a routerLink="security/Log-in">iniciar sesion</a></li>
+  <li *ngIf="LogginOn"><a routerLink="security/Log-out">Cerrar sesion</a></li>
+</ul> -->
