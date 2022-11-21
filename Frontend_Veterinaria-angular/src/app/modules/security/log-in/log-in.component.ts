@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SecurityService } from 'src/app/service/security.service';
 import * as CryptoJS from "crypto-js";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-log-in',
@@ -15,7 +16,7 @@ export class LogInComponent implements OnInit {
     'clave' : ['',[Validators.required]],
   });
 
-  constructor(private fb : FormBuilder, private serviceSecurity : SecurityService) { }
+  constructor(private fb : FormBuilder, private serviceSecurity : SecurityService, private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +27,7 @@ export class LogInComponent implements OnInit {
     const claveCifrada = CryptoJS.MD5(clave).toString();
     this.serviceSecurity.Indetify(usuario,claveCifrada).subscribe((datos : any) => {
       this.serviceSecurity.StockSesion(datos);
+      this.router.navigate(['/home'])
     },(err : any) =>{
       //ko
       alert('Todo mal')
