@@ -42,13 +42,13 @@ export class Usuario extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    required: false,
   })
   contrasena: string;
 
   @property({
     type: 'string',
-    required: true,
+    required: false,
   })
   rol: string;
 
