@@ -5,7 +5,8 @@ import { ModelDatos } from "./datos.model";
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule
   ]
@@ -17,3 +18,4 @@ export class ModelIdentify {
   tk? : string;
   IdentifyCorrect : boolean = false;
  }
+

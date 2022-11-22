@@ -41,7 +41,6 @@ body{
 }
 
 .card::before{
-    content: '';
     position: absolute;
     inset: 0;
     background: rgba(105, 78, 78, 0.15);

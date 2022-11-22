@@ -68,4 +68,15 @@ export class SecurityService {
     return datosString;
   }
 
+  GetToken(){
+    const datosString = localStorage.getItem('datosSesion');
+    if(datosString){
+      const datos = JSON.parse(datosString)
+      return datos.tk;
+    }else{
+      return '';
+    }
+
+  }
+
 }
