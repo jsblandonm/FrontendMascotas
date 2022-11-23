@@ -297,8 +297,8 @@ body{
 
 .servcios li{
     float: left;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     text-align: center;
     background: #0084d8;
     color: #EEE;
@@ -312,10 +312,11 @@ body{
 }
 
 .servcios li img{
-    width: 70px;
+    width: 150px;
     height: auto;
     margin: 20px auto;
     display: block;
+    border-radius: 5px;
 }
 
 
