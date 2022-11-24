@@ -56,7 +56,7 @@ body {
   height: 100vh;
   font-family: 'Poppins', sans-serif;
   font-size: 0.88rem;
-  background: var(--color-background);
+  background: #363949;
   user-select: none;
   overflow-x: hidden;
   /* color: var(--color-dark); */
@@ -65,7 +65,7 @@ body {
 .container {
   display: grid;
   width: 96%;
-  margin: 0 auto;
+  margin: 100 auto;
   gap: 1.8rem;
   grid-template-columns: 14rem auto 23rem;
 }

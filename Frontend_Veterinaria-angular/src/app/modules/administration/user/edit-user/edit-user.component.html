@@ -10,7 +10,7 @@
           <h1>Editar Usuario</h1>
           <div>Porfavor Edite el usuario</div>
         </div>
-        <form [formGroup]="fgValidator" (ngSubmit)="EditUser()" class="login-card-form needs-validation" novalidate>
+        <form [formGroup]="fgValidator" (ngSubmit)="SearchUser()" class="login-card-form needs-validation" novalidate>
             <input type="hidden" formControlName="id">
           <div class="form-item">
             <span for="NombreForm" class="form-item-icon material-symbols-rounded">insert_text</span>
@@ -30,7 +30,7 @@
           </div>
           <div class="form-item">
             <span class="form-item-icon material-symbols-rounded">mail</span>
-            <input formControlName="correo" type="text" placeholder="Enter Email" id="emailForm" required autofocus />
+            <input formControlName="correo" type="text" placeholder="Enter Email" id="emailForm" required />
           </div>
           <!-- <div class="form-item">
             <span class="form-item-icon material-symbols-rounded">lock</span>
